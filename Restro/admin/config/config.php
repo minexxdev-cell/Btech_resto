@@ -2,7 +2,8 @@
 // Database credentials - Use environment variables in production
 $username = getenv('DB_USER') ?: "minexx";
 $password = getenv('DB_PASSWORD') ?: "Minexx2024$";
-$database = getenv('DB_NAME') ?: "roBao_test";
+$database = getenv('DB_NAME') ?: "reBtech_test";
+$database_hotel=getenv('DB_NAME')?:"roBtech_test";
 $database_invetory=getenv('DB_NAME')?:"Btest_1";
 // GCP Cloud SQL configuration
 $connectionName = getenv('CLOUD_SQL_CONNECTION_NAME') ?: "minexx-dashboard:us-central1:minexx-database";
@@ -19,7 +20,7 @@ if ($isGCP) {
     $mysqli = mysqli_connect($host, $username, $password, $database, null, $socket);
     
     
-    $mysqli_hotel=mysqli_connect($host, $username, $password, $database, null, $socket);
+    $mysqli_hotel=mysqli_connect($host, $username, $password, $database_hotel, null, $socket);
     $mysqli_inventory=mysqli_connect($host, $username, $password, $database_invetory, null, $socket);
     $connectionType = "GCP Unix Socket";
 
